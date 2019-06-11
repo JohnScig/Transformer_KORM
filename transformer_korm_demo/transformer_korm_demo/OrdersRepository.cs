@@ -7,15 +7,11 @@ using System.Threading.Tasks;
 
 namespace transformer_korm_demo
 {
-    public class CustomerRepository
+    public class OrderRepository
     {
         private KormDatabase _database = new KormDatabase();
 
-        public IEnumerable GetCustomers()
-        {
-            IEnumerable ret = _database.GetAllData<CustomerDTO>().Where(x=>x.Country=="Germany").ToList<CustomerDTO>();
-
-            return ret;
-        }
+        public IEnumerable GetOrders()
+            => _database.GetAllData<OrderDTO>().Take(5).ToList<OrderDTO>();
     }
 }

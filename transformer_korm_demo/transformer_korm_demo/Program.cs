@@ -16,7 +16,7 @@ namespace transformer_korm_demo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainView(new MainViewModel(new CustomerRepository())));
+            Application.Run(new MainView(new MainViewModel(new CustomerRepository(), new OrderRepository())));
         }
     }
 }

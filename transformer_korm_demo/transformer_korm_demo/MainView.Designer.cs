@@ -30,6 +30,7 @@
         {
             this.dgv_mainGridView = new System.Windows.Forms.DataGridView();
             this.btn_loadCustomers = new System.Windows.Forms.Button();
+            this.btn_LoadOrders = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_mainGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,11 +52,22 @@
             this.btn_loadCustomers.UseVisualStyleBackColor = true;
             this.btn_loadCustomers.Click += new System.EventHandler(this.btn_loadCustomers_Click);
             // 
+            // btn_LoadOrders
+            // 
+            this.btn_LoadOrders.Location = new System.Drawing.Point(648, 395);
+            this.btn_LoadOrders.Name = "btn_LoadOrders";
+            this.btn_LoadOrders.Size = new System.Drawing.Size(140, 23);
+            this.btn_LoadOrders.TabIndex = 2;
+            this.btn_LoadOrders.Text = "Load Orders";
+            this.btn_LoadOrders.UseVisualStyleBackColor = true;
+            this.btn_LoadOrders.Click += new System.EventHandler(this.btn_LoadOrders_Click);
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 468);
+            this.Controls.Add(this.btn_LoadOrders);
             this.Controls.Add(this.btn_loadCustomers);
             this.Controls.Add(this.dgv_mainGridView);
             this.Name = "MainView";
@@ -69,6 +81,7 @@
 
         private System.Windows.Forms.DataGridView dgv_mainGridView;
         private System.Windows.Forms.Button btn_loadCustomers;
+        private System.Windows.Forms.Button btn_LoadOrders;
     }
 }
 
