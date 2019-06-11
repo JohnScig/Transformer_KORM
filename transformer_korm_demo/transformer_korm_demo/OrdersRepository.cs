@@ -13,5 +13,12 @@ namespace transformer_korm_demo
 
         public IEnumerable GetOrders()
             => _database.GetAllData<OrderDTO>().Take(5).ToList<OrderDTO>();
+
+        public IEnumerable GetCompleteOrders()
+            => _database.GetAllDataViaJoin<OrderDTO>(
+                "Orders.*, Customers.CompanyName AS Company",
+                "Orders LEFT JOIN Customers ON Orders.CustomerID = Customers.CustomerID")
+            .ToList();
+
     }
 }

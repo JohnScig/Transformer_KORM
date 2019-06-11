@@ -31,5 +31,11 @@ namespace transformer_korm_demo
             _viewModel.LoadOrders();
             dgv_mainGridView.DataSource = _viewModel.Orders;
         }
+
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+            _viewModel.SaveCustomers();
+            dgv_mainGridView.DataSource = _viewModel.Orders;
+        }
     }
 }

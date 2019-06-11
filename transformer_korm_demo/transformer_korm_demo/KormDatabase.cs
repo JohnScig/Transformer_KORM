@@ -30,7 +30,6 @@ namespace transformer_korm_demo
             _connectionString = connBuilder.ConnectionString;
         }
 
-
         public IDbSet<T> GetAllData<T>()
         {
             IDbSet<T> ret = null;
@@ -38,6 +37,21 @@ namespace transformer_korm_demo
             using (Database db = new Database(_connectionString, "System.Data.SqlClient"))
             {
                 ret = db.Query<T>().AsDbSet();
+            }
+
+            return ret;
+        }
+
+        public IDbSet<T> GetAllDataViaJoin<T>(string selectPart, string wherePart)
+        {
+            IDbSet<T> ret = null;
+
+            using (Database db = new Database(_connectionString, "System.Data.SqlClient"))
+            {
+                ret = db.Query<T>()
+                    .Select(selectPart)
+                    .From(wherePart)
+                    .AsDbSet();
             }
 
             return ret;

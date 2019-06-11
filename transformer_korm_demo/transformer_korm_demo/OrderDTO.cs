@@ -12,6 +12,9 @@ namespace transformer_korm_demo
     {
         [Key]
         public int OrderID { get; set; }
+
+        [Alias("Company")]
+        public string CompanyName { get; set; }
         public string CustomerID { get; set; }
         public int EmployeeID { get; set; }
         public DateTime OrderDate { get; set; }

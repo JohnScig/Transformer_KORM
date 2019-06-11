@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kros.KORM.Query;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -33,7 +34,13 @@ namespace transformer_korm_demo
             => Customers = new BindingList<CustomerDTO>((List<CustomerDTO>) _customerRepository.GetCustomers());
 
         internal void LoadOrders()
-            => Orders = new BindingList<OrderDTO>((List <OrderDTO>) _orderRepository.GetOrders());
+            => Orders = new BindingList<OrderDTO>((List<OrderDTO>) _orderRepository.GetCompleteOrders());
+
+        internal void SaveCustomers()
+        {
+            _customerRepository.SaveCustomers(Customers);
+            LoadCustomers();
+        }
 
 
         #endregion
